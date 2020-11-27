@@ -1,20 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Baloo&display=swap" rel="stylesheet">
-  <!-- Materialize Icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Materialize CSS Framework -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="/css/style.css" />
-  <!-- JavaScript for Materialize -->
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <title>Document</title>
-</head>
+<%- include('./partials/head') %>
+
 <body>
-    
+    <%- include('./partials/header') %>
+    <br></br>
+    <nav>
+        <a href="/skincares/index<%= skincare._id%>">SKINCARE</a>
+    </nav>
+    <br></br>
+    <aside>What You Get</aside>
+        <p>Mysa Beauty Box allows you to be in full control with what you want
+            in your monthly subscriptions! Each box is guaranteed to include MORE products and
+            MORE full-size items. Each box will include: 
+        </p>
+        <ul>
+            <li>1) Reason 1</li>
+            <li>2) Reason 2</li>
+            <li>3) Reason 3</li>
+        </ul>
+    <div class="grid-container">
+        <div class="grid-item">Monthly</div>
+            <span>$15/Month</span>
+        <div class="grid-item">6 Months</div>
+            <span>$13/Month</span>
+        <div class="grid-item">12 Months</div>
+            <span>$12/Month</span>
+
+    </div>
+    <%- include('./partials/footer') %>
 </body>
 </html>

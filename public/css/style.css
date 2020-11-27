@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: Helvetica;
+  color: #424748;
+}
+
+body {
+  background-image: url('../images/sarah-dorweiler-x2Tmfd1-SgA-unsplash.jpg');
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.brand-logo {
+    margin-left: 15px;
+    font-family: 'Baloo', cursive;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+  }
+
+  
+
+  #search-row form {
+    padding-top: 40px;
+  }
+
+  
+  nav {
+    background-color: #F4C2C2;
+    height: 50px;
+
+  }
+
+  header {
+    height: 150px;
+    background-color: #F4C2C2;
+  }
+
+
+  footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

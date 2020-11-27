@@ -4,6 +4,12 @@ const port = process.env.PORT || 3000;
 const session = require('express-session');
 const passport = require('passport');
 
+// Require Our Routes
+const indexRouter = require('./routes/index');
+const skincaresRouter = require('./routes/skincares');
+const reviewsRouter = require('./routes/reviews');
+const consumersRouter = require('./routes/consumers');
+
 // Load the Env Vars 
 require('dotenv').config(); 
 
@@ -18,29 +24,37 @@ const app = express();
 require('./config/database');
 require('./config/passport');
 
-// Require Our Routes
-const indexRoutes = require('./routes/index');
-
-// View Engine Setup
+// View Engine Setup 
 app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
 app.use(morgan('dev'));
 app.use(methodOverride('_method'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: false}));
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: true 
+    saveUninitialized: false 
 }));
 
 // Create Passport Middleware 
 app.use(passport.initialize());
 app.use(passport.session());
 
+// make req.user available everywhere:
+app.use(function(req, res, next) {
+    res.locals.consumer = req.consumer
+    next();
+});
+
 // Mount Routes Here
 app.use('/', indexRouter);
+app.use('/skincares', skincaresRouter); 
+app.use('/reviews', reviewsRouter); 
+app.use('/consumers',consumersRouter)
+
+
 
 // Tell the Application to Listen
 app.listen(port, function () {
