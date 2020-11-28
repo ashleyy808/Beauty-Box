@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const indexCtrl = require('../controllers/index'); 
+//const skincaresCtrl = require('../controllers/skincares');
 
 // Define Routes
 /*
@@ -11,6 +12,7 @@ router.get('/', function(req,res,next) {
 */
 
 router.get('/', indexCtrl.index);
+//router.get('/skincares/index', skincaresCtrl.index); 
 
 //Google OAuth
 router.get('/auth/google', passport.authenticate (

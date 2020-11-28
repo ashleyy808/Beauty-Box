@@ -12,13 +12,13 @@ module.exports= {
  // Function for user wanting to choose item by skincare
 function index(req, res) {
     Skincare.find({}, function(err, skincares) {
-      res.render('/skincares/index', { skincares, consumer: req.consumer });
+      res.render('skincares/index  ', { skincares, consumer: req.consumer });
     });
   };
 
   function show(req, res) {
     Skincare.findOne({_id: req.params.skincareId} , function (err, skincare) {
-      if (err) return res.render('/show'); 
+      if (err) return res.render('/:id'); 
     })
   }
 

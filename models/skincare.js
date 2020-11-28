@@ -21,6 +21,10 @@ const skincareSchema = new Schema({
         unique: true,
         required: true,
     },
+    image: {
+        type: String,
+        required: true
+    },   
     description: String,
     reviews: [reviewSchema],
 }, { timestamps: true });

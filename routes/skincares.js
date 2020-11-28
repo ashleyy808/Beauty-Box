@@ -8,7 +8,7 @@ router.get('/', isAuthenticated, skincaresCtrl.index);
 
 //router.get('/:id/brandName', isAuthenticated, skincaresCtrl.show);
 //router.post('/', isAuthenticated,skincaresCtrl.create);
-router.get('/show', isAuthenticated, skincaresCtrl.show);
+router.get('/:id', isAuthenticated, skincaresCtrl.show);
 
 
 
