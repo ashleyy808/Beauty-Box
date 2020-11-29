@@ -7,8 +7,8 @@ const passport = require('passport');
 // Require Our Routes
 const indexRouter = require('./routes/index');
 const skincaresRouter = require('./routes/skincares');
-const reviewsRouter = require('./routes/reviews');
-const consumersRouter = require('./routes/consumers');
+//const reviewsRouter = require('./routes/reviews');
+//const consumersRouter = require('./routes/consumers');
 
 // Load the Env Vars 
 require('dotenv').config(); 
@@ -51,8 +51,8 @@ app.use(function(req, res, next) {
 // Mount Routes Here
 app.use('/', indexRouter);
 app.use('/skincares', skincaresRouter); 
-app.use('/reviews', reviewsRouter); 
-app.use('/consumers',consumersRouter)
+//app.use('/reviews', reviewsRouter); 
+//app.use('/consumers',consumersRouter)
 
 
 

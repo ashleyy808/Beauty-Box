@@ -10,19 +10,19 @@ passport.use(new GoogleStrategy({
     callbackURL: process.env.GOOGLE_CALLBACK
 }, function(accessToken, refreshToken, profile, done) {
     Consumer.findOne({ googleId: profile.id}, function(err, foundConsumer) {
-        if(err) return cb(err);
-        if(consumer) {
+        if(err) return done(err);
+        if(foundConsumer) {
             return done(null, foundConsumer)
         } else {
             const newConsumer = new Consumer({
-                displayName: profile.displayName,
-                email: profile.emails,
+                name: profile.displayName,
+                email: profile.emails[0].value,
                 googleId: profile.id,
                 avatarURL: profile.avatarURL
             });
             newConsumer.save(function(err) {
                 if(err) return done(err);
-                return cb(null, newConsumer);
+                return done(null, newConsumer);
             });
         }
     });
@@ -33,7 +33,7 @@ passport.serializeUser(function(consumer, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-    Customer.findById(id, function(err, consumer) {
+    Consumer.findById(id, function(err, consumer) {
         done(err, consumer);
     });
 });

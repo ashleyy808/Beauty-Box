@@ -5,12 +5,54 @@
 <body>
     <%- include('../partials/header') %>
     <main class="container">
-        <div class="grid-container">
-            <div class="grid-item">Item 1</div>
-               
-            <div class="grid-item">Item 2</div>
-               
-            <div class="grid-item">Item 3</div>
+       <div class="container">
+           <h4><%= skincare.skinType %> | Brand Name <%= skincare.brandName %> | Description:
+        <%= skincare.description %></h4>
+       </div>
+       <form class="container" action="/skincares/<%= skincare._id%>/descriptions" method="POST">
+        <p>Add a New Brand of Skincare</p>
+        <div class="input-field">
+            <select name="brand-name">
+                <input type="string" name="brand-name">
+            </select>
+            <label>Brand Name</label>
+        </div>
+         <div class="input-field">
+            <select name="descriptions">
+                <input type="string" name="descriptions">
+            </select>
+            <label>Description</label>
+        </div>
+        <div class="input-field">
+            <input type="string" name="reviews">
+            <label>My Review</label>
+        </div>
+        <input class="btn btn-small" type="submit" value="Add Review">
+    </form>
+    <div class="container">
+
+        <% if(skincare.reviews.length) { %>
+        <h6>Reviews for this Skincare Product</h6>
+        <table class="striped">
+            <thead>
+                <tr>
+                    <th>Skin Type</th>
+                    <th>Brand Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% skincare.reviews.forEach(function(review) { %>
+                <tr>
+                    <td><%= review.skinType %></td>
+                    <td><%= review.brandName %></td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+        <% } else { %>
+        <h6>No Reviews For This Brand</h6>
+        <% } %>
+    </div>
     <a href="/skincares/<%= skincare._id %>/skincares/new"></a>
         </div>
     </main>

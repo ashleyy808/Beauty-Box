@@ -5,8 +5,45 @@
 <body>
     <%- include('../partials/header') %>
     <main class="container">
-    
+        <form action="/skincares" method="POST">
+            <div class="input-field">
+                <select name="skin-type">
+                    <input type="string" name="skin-type">
+                    <option value="normal">Normal</option>
+                    <option value="dry">Dry</option>
+                    <option value="oily">Oily</option>
+                    <option value="combination">Combination</option>
+                </select>
+                <label>Skin Type</label><br>
+            </div>
+            <div class="input-field">
+                <select name="brand-name">
+                    <label>Enter Image Link to Brand:</label>
+                    <input type="text" name="brandName">
+                    <input type="submit" value="Add description">
+                    <input type="string" name="brand-name">
+            
+                </select>
+                <label>Skincare Brand</label>
+            </div>
+            <br>
+            <div class="input-field">
+                <br>
+                <input type="string" name="description">
+                <label>Description</label>
+            </div>
+            <br>
+            <div class="input-field">
+                <br>
+                <input type="string" name="reviews">
+                <label>Reviews</label>
+            </div>
+            <input class="btn btn-small" type="submit" value="Add Skincare">
+            <a href="/skincares/show<%= %>">Testing</a>
+        </form>
+
     </main>
     <%- include('../partials/footer') %>
 </body>
+
 </html>

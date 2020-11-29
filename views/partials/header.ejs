@@ -1,25 +1,12 @@
 <header>
     <nav>
-        <p id="home"><a href="/">Home</a></p>
-        <div id='user_nav'>
-          <% if (consumer) { %>
-          <a id='consumer-skincares' href="/consumer">
-            <% if (consumer.avatarURL) { %>
-            <img class="user_photo" src="<%= consumer.avatarURL %>" alt="Consumer Picture">
-            <% } %>
-            Skincare
-            <a href='/show'>Add Skincare</a>
-            <a href='/logout'><i class="material-icons left">trending_flat</i>Log Out</a>
-            <% } else { %>
-            <a href="/"><i class="material-icons left"></i>Shopping Cart</a>   
-            <a href="/auth/google"><i class="material-icons left"></i>Login with Google</a>
-            <% } %>
         <div class="nav-wrapper blue">
             <a href="/" class="brand-logo">Mysa Beauty Box</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <% if(consumer) { %>
-                    <li><a href="/skincares/index">All Skincares</a></li>
-                    <li><a href="/skincares/show">Adding to Beauty Box</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/skincares">All Skincares</a></li>
+                    <li><a href="/skincares/new">Adding to Beauty Box</a></li>
                     <li><a href="/logout">Logout</a></li>
                 <% } else { %>
                     <li><a href="/auth/google">Login With Google</a></li>
@@ -27,4 +14,4 @@
             </ul>
         </div>
     </nav>
-</header>
+</header>    

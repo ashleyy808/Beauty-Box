@@ -5,14 +5,10 @@ const indexCtrl = require('../controllers/index');
 //const skincaresCtrl = require('../controllers/skincares');
 
 // Define Routes
-/*
-router.get('/', function(req,res,next) {
-    res.render('index');
-});
-*/
+
 
 router.get('/', indexCtrl.index);
-//router.get('/skincares/index', skincaresCtrl.index); 
+ 
 
 //Google OAuth
 router.get('/auth/google', passport.authenticate (
@@ -22,7 +18,7 @@ router.get('/auth/google', passport.authenticate (
 ));
 
 router.get('/oauth2callback', passport.authenticate('google', {
-    successRedirect: '/skincares',
+    successRedirect: '/',
     failureRedirect: '/'    
 }));
 

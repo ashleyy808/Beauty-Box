@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema({
-    content: String,
+    type: String,
     rating: {
         type: Number, 
         default: 5
@@ -16,17 +16,19 @@ const reviewSchema = new Schema({
 
 
 const skincareSchema = new Schema({
-    brandName:  {
+    skinType:  {
         type: String,
-        unique: true,
-        required: true,
+        enum: ['normal', 'dry', 'oily', 'combination']
     },
-    image: {
+    brandName: {
         type: String,
-        required: true
-    },   
+    },  
     description: String,
     reviews: [reviewSchema],
+    reviewedBy: {
+        type: Schema.Types.ObjectId,
+        ref: 'Consumer'
+    }
 }, { timestamps: true });
 
 

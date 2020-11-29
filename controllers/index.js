@@ -10,14 +10,9 @@ module.exports = {
 
 function index(req, res) {
     Skincare.find({}, function (err,skincares) {
-        res.render('/', { skincares });
+        res.render('index', { skincares });
     });
 };
 
-/*
-function index(req,res) {
-    res.render('index');
-}
 
-*/
 

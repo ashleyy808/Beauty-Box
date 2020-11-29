@@ -7,24 +7,31 @@
   <%- include('../partials/header') %>
   <main class="container">
     <h1>Select a Skincare Product</h1>
-    <p>Brand Selector</p>
-    <div>
-      <div class="grid-container">
-        <div class="grid-item">Item 1
-         
-        </div>
-           
-        <div class="grid-item">Item 2</div>
-           
-        <div class="grid-item">Item 3</div>
-            
-            <a href="/skincares/<%= skincare._id%>">Testing</a>"
+    <table class="striped highlight">
+      <thead>
+        <tr>
+          <th>Skin Type</th>
+          <th>Brand Name</th>
+          <th>Description</th>
+          <th>Review</th>
+        </tr>
+        <a href="/skincares/new<%= %>">Add New Product</a>
+      </thead>
+    <tbody>
+      <% skincares.forEach(function(skincare) { %>
+        <tr>
+          <td><%= skincare.skinType %></td>
+          <td><%= skincare.brandName %></td>
+          <td><%= skincare.description %></td>
+          <td><%= skincare.reviewedBy.displayName %></td>
+          
+        </tr>
+        <% }) %>
+    </tbody>
+  </table>
+</main>
+<%- include('../partials/footer') %> 
 
-           
-    </div>
-    <p>You have entered your skincare product into your beauty box!</p>
-    
-  </main>
-  <%- include('../partials/footer') %> 
 </body>
+
 </html>
