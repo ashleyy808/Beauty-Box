@@ -4,15 +4,32 @@
 
 <body>
     <%- include('./partials/header') %>
-    <h1>Edit: "<%= skincare.text %>"" </h1>
+    <h1>Update <%= skinType.brandName %></h1>
 
-    <a href="/skincares">Cancel</a>
+    <p>Choose the field you would like to update for <%= skinType.brandName %>.</p>
+    <% skincare.forEach(function(skincare, idx){ %>
+    <li>
+        <%= skincare.brandName %>
+        <a href="/skincares/<%= skincare._id %>/edit">
+            <button class="edit-button">Edit</button>
+        </a>
+        <form action="/skincare/<%= skinType._id %>?_method=PUT" method="POST">
+            <label>Change product type for this brand </label>
+            <input type="text" name="product" value="<%= skincare.product %>">
+            <label>Change skin type for this brand </label>
+            <input type="text" name="skinType" value="<%= skincare.skinType %>">
+            <label>Change Brand Name: </label>
+            <input type="text" name="brandName" value="<%= skincare.brandName %>">
+            <input type="submit" value="Update">
+            <label>Change the ingredients for this brand </label>
+            <input type="text" name="ingredients" value="<%= skincare.ingredients %>">
+            <label>Change the Description for Skincare Product:</label>
+            <input type="text" name="description" value="<%= skincare.description %>">
+        </form>
+        <a href="/skincares">Cancel</a>
+    </li>
 
-    <form action="/skincares/<%= skincareId %>?_method=PUT" method="POST">
-        <input type="text" name="text" value="<%= skincare.text %>">
-        <input type="submit" value="Edit Skincare">
-    </form>
-    
     <%- include('./partials/footer') %>
 </body>
+
 </html>

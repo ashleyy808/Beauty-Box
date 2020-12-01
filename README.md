@@ -1,7 +1,7 @@
 # Beauty Box CRUD App
 
 # Description
-This crud skincare application is a directory for skincare products for users to create and update brands for different skintypes. 
+This CRUD skincare application is a directory for skincare products for users to create and update brands for different skintypes. 
 
 # Wireframe
 

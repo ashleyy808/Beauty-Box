@@ -10,7 +10,7 @@ const skincaresRouter = require('./routes/skincares');
 //const consumersRouter = require('./routes/consumers');
 
 // Load the Env Vars 
-require('dotenv').config(); 
+require('dotenv').config();
 
 // Create Middleware Path
 const morgan = require('morgan');
@@ -30,11 +30,13 @@ app.use(express.static('public'));
 app.use(morgan('dev'));
 app.use(methodOverride('_method'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({
+    extended: true
+}));
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false 
+    saveUninitialized: false
 }));
 
 // Create Passport Middleware 
@@ -42,14 +44,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // make req.user available everywhere:
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.locals.consumer = req.consumer
     next();
 });
 
 // Mount Routes Here
 app.use('/', indexRouter);
-app.use('/skincares', skincaresRouter);  
+app.use('/skincares', skincaresRouter);
 //app.use('/consumers',consumersRouter)
 
 

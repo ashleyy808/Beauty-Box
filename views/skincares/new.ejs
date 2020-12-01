@@ -8,12 +8,20 @@
     <main class="container">
         <form action="/skincares" method="POST">
             <div class="input-field">
-                <input type="text" name="skinType">
-            <label>Skin Type</label>
-        </div>
+                <input type="text" name="product">
+                <label>Product</label>
+            </div>
             <div class="input-field">
-                    <input type="text" name="brandName">
+                <input type="text" name="skinType">
+                <label>Skin Type</label>
+            </div>
+            <div class="input-field">
+                <input type="text" name="brandName">
                 <label>Skincare Brand</label>
+            </div>
+            <div class="input-field">
+                <input type="text" name="ingredients">
+                <label>Ingredients</label>
             </div>
             <div class="input-field">
                 <input type="text" name="description">
@@ -21,8 +29,6 @@
             </div>
             <input class="btn btn-small" type="submit" value="Add Skincare">
         </form>
-        
-
     </main>
     <%- include('../partials/footer') %>
 </body>

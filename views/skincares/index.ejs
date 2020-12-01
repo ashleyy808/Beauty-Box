@@ -6,34 +6,52 @@
 <body>
   <%- include('../partials/header') %>
   <main class="container">
-    <h3>Skincare Product Directory</h3>
+    <h4>Skincare Product Directory</h4>
     <table class="striped highlight">
       <thead>
         <tr>
+          <th>Product</th>
           <th>Skin Type</th>
           <th>Brand Name</th>
+          <th>Ingredients</th>
           <th>Description</th>
         </tr>
         <a href="/skincares/new<%= %>">Add New Product</a>
-      </thead> 
-    <tbody>
-      
-      <% skincares.forEach(function(skincare) { %>
+      </thead>
+      <tbody>
+
+        <% skincares.forEach(function(skincare) { %>
         <tr>
+          <td><%= skincare.product %></td>
           <td><%= skincare.skinType %></td>
           <td><%= skincare.brandName %></td>
+          <td><%= skincare.ingredients %></td>
           <td><%= skincare.description %></td>
         </tr>
-        
-        <% }) %>
-    </tbody>
-  </table>
-  <button type="button" class="btn btn-danger">Delete</button>
-  <input type="submit" value="Edit Skincare"> 
- 
-</main>
 
-<%- include('../partials/footer') %> 
+        <% }) %>
+      </tbody>
+    </table>
+    <style>
+      .button {
+        background-color: #DC143C;
+        color: white;
+        padding: 8px 25px;
+        margin: 4px 2px;
+        border-radius: 12px;
+      }
+
+      .button2 {
+        background-color: #1E90FF;
+      }
+    </style>
+
+    <button class="button button2">Edit Skincare</button>
+    <button class="button">Delete</button>
+
+  </main>
+
+  <%- include('../partials/footer') %>
 
 </body>
 

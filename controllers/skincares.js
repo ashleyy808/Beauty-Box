@@ -1,22 +1,24 @@
-const Skincare = require('../models/skincare'); 
+const Skincare = require('../models/skincare');
 //const Consumer = require('../models/consumer');
 
-module.exports= {
-    index,
-    new: newSkincare,
-    create,
+module.exports = {
+  index,
+  new: newSkincare,
+  create,
   //  show,
-    delete: deleteSkincare,
-    edit,
-    update
+  delete: deleteSkincare,
+  edit,
+  update
 };
 
 
 
 
-function index(req,res) {
-  Skincare.find({}, function(err, skincares) {
-    res.render('skincares/index', { skincares });
+function index(req, res) {
+  Skincare.find({}, function (err, skincares) {
+    res.render('skincares/index', {
+      skincares
+    });
   });
 }
 
@@ -30,9 +32,9 @@ function newSkincare(req, res) {
 function create(req, res) {
   console.log(req.body)
   const skincare = new Skincare(req.body)
-  skincare.save(function(err, skincare) {
+  skincare.save(function (err, skincare) {
     if (err) {
-      console.log(err) 
+      console.log(err)
     } else {
       res.redirect('/skincares');
     }
@@ -40,8 +42,8 @@ function create(req, res) {
   //req.body.done = false;
   //Skincare.create(req.body, function(err, skincare) {
   //  console.log(skincare)
-    // res.redirect('/skincares');
- // }); 
+  // res.redirect('/skincares');
+  // }); 
 }
 
 
@@ -54,50 +56,30 @@ function show(req, res) {
 */
 
 
+
 function deleteSkincare(req, res) {
-  Skincare.findById(req.params.id, function(err, skincare) {
-    skincare.save(function(err) {
-      res.redirect('/skincares');
-    })
-  });
+  Skincare.deleteOne(req.params.id);
+  res.redirect('/skincares');
 }
 
-function edit(req, res) {
+
+function edit(req, res, next) {
   res.render('skincare/edit', {
     skincareId: req.params.id
   });
 }
 
 function update(req, res) {
-  Skincare.findOneAndUpdate({ _id: req.params.id }, req.body, function(err, skincare) {
+  Skincare.findOneAndUpdate({
+    _id: req.params.id
+  }, req.body, function (err, skincare) {
     skincare.brandName = req.body.brandName;
-    skincare.save(function(err) {
+    skincare.save(function (err) {
       if (err) {
-        console.log(err) 
+        console.log(err)
       } else {
         res.redirect('/skincares');
       }
     })
-})
+  })
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
- 
-  
-
-
