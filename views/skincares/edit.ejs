@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head') %>
-
-<body>
-    <%- include('./partials/header') %>
-    <h1>Update <%= skinType.brandName %></h1>
-
-    <p>Choose the field you would like to update for <%= skinType.brandName %>.</p>
-    <% skincare.forEach(function(skincare, idx){ %>
-    <li>
-        <%= skincare.brandName %>
-        <a href="/skincares/<%= skincare._id %>/edit">
-            <button class="edit-button">Edit</button>
-        </a>
-        <form action="/skincare/<%= skinType._id %>?_method=PUT" method="POST">
-            <label>Change product type for this brand </label>
+<%- include('../partials/head') %>
+<main class="container">
+    <form action="/skincares" method="POST">
+        <div class="input-field">
             <input type="text" name="product" value="<%= skincare.product %>">
-            <label>Change skin type for this brand </label>
+            <label>Product</label>
+        </div>
+        <div class="input-field">
             <input type="text" name="skinType" value="<%= skincare.skinType %>">
-            <label>Change Brand Name: </label>
+            <label>Skin Type</label>
+        </div>
+        <div class="input-field">
             <input type="text" name="brandName" value="<%= skincare.brandName %>">
-            <input type="submit" value="Update">
-            <label>Change the ingredients for this brand </label>
+            <label>Skincare Brand</label>
+        </div>
+        <div class="input-field">
             <input type="text" name="ingredients" value="<%= skincare.ingredients %>">
-            <label>Change the Description for Skincare Product:</label>
+            <label>Ingredients</label>
+        </div>
+        <div class="input-field">
             <input type="text" name="description" value="<%= skincare.description %>">
-        </form>
-        <a href="/skincares">Cancel</a>
-    </li>
-
-    <%- include('./partials/footer') %>
-</body>
+            <label>Description</label>
+        </div>
+        <input class="btn btn-small" type="submit" value="Update Skincare Product">
+        
+    </form>
+    <%- include('../partials/footer') %>
+</main>
 
 </html>
+
+
+
+
+
+   

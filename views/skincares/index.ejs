@@ -20,35 +20,22 @@
       </thead>
       <tbody>
 
-        <% skincares.forEach(function(skincare) { %>
+        <% skincares.forEach(function(skincare, idx) { %>
         <tr>
           <td><%= skincare.product %></td>
           <td><%= skincare.skinType %></td>
           <td><%= skincare.brandName %></td>
           <td><%= skincare.ingredients %></td>
           <td><%= skincare.description %></td>
+          <td><a href="/skincares/<%= skincare._id %>/edit">Edit</a</td>
+            <form class= "delete-form" action="/skincares/<%= skincare._id %>?_method=DELETE" method="POST">
+              <button type="submit">DELETE</button>
+          </form>
         </tr>
 
         <% }) %>
       </tbody>
     </table>
-    <style>
-      .button {
-        background-color: #DC143C;
-        color: white;
-        padding: 8px 25px;
-        margin: 4px 2px;
-        border-radius: 12px;
-      }
-
-      .button2 {
-        background-color: #1E90FF;
-      }
-    </style>
-
-    <button class="button button2">Edit Skincare</button>
-    <button class="button">Delete</button>
-    <a href="/skincares/<%= skincare._id %>/edit"></a>
   </main>
 
   <%- include('../partials/footer') %>
