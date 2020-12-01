@@ -5,12 +5,14 @@ const isAuthenticated = require('../utils/authorization');
 
 
 router.get('/', isAuthenticated, skincaresCtrl.index);
-router.get('/new', isAuthenticated, skincaresCtrl.new);
-router.post('/', isAuthenticated,skincaresCtrl.create);
-router.get('/:id', isAuthenticated, skincaresCtrl.show);
-router.post('/:id/reviews', isAuthenticated, skincaresCtrl.addReview);
-router.put('/:id/reviews', isAuthenticated, skincaresCtrl.updateReview);
-router.delete('/:id/reviews', isAuthenticated, skincaresCtrl.deleteReview);
+router.get('/new', skincaresCtrl.new);
+router.post('/',skincaresCtrl.create);
+//router.get('/:id', skincaresCtrl.show);
+router.delete('/:id', skincaresCtrl.delete);
+router.get('/:id/edit', skincaresCtrl.edit);  
+router.put('/:id', skincaresCtrl.update);
+
+
 
 
 

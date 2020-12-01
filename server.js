@@ -7,7 +7,6 @@ const passport = require('passport');
 // Require Our Routes
 const indexRouter = require('./routes/index');
 const skincaresRouter = require('./routes/skincares');
-//const reviewsRouter = require('./routes/reviews');
 //const consumersRouter = require('./routes/consumers');
 
 // Load the Env Vars 
@@ -31,7 +30,7 @@ app.use(express.static('public'));
 app.use(morgan('dev'));
 app.use(methodOverride('_method'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false}));
+app.use(express.urlencoded({ extended: true}));
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
@@ -50,8 +49,7 @@ app.use(function(req, res, next) {
 
 // Mount Routes Here
 app.use('/', indexRouter);
-app.use('/skincares', skincaresRouter); 
-//app.use('/reviews', reviewsRouter); 
+app.use('/skincares', skincaresRouter);  
 //app.use('/consumers',consumersRouter)
 
 

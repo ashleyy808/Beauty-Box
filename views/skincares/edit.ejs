@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %>
+
+<body>
+    <%- include('./partials/header') %>
+    <h1>Edit: "<%= skincare.text %>"" </h1>
+
+    <a href="/skincares">Cancel</a>
+
+    <form action="/skincares/<%= skincareId %>?_method=PUT" method="POST">
+        <input type="text" name="text" value="<%= skincare.text %>">
+        <input type="submit" value="Edit Skincare">
+    </form>
+    
+    <%- include('./partials/footer') %>
+</body>
+</html>

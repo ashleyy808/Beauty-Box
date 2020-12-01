@@ -23,6 +23,8 @@
 
   }
 
+  
+
   header {
     height: 150px;
     background-color: #F4C2C2;
@@ -31,16 +33,42 @@
   body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    margin: 0;
+    height: 100vh;
 }
 
   main {
     flex-grow: 1;
+    justify-content: flex-start;
 }
 
 
   footer {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    margin-top: 25px;
+    padding: 7px;
+    left: 0;
+    bottom: 0;
+    flex-direction: row;
+    background-color: rgb(240, 240, 240);
+    width: 100%;
+    z-index: 5;
 }
+
+
+
+.delete-form {
+  display: inline-block;
+  margin-right: 10px;
+ }
+ .delete-form button {
+  color: red;
+ }
+ li {
+  list-style: none;
+  margin-bottom: 10px;
+ }

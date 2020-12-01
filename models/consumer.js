@@ -6,10 +6,7 @@ const consumerSchema = new Schema( {
     name: String,
     email: String,
     googleID: String,
-    reviewedSkincare: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Skincare'
-    }]
+    avatarURL: String,
 });
 
 module.exports = mongoose.model('Consumer', consumerSchema); 

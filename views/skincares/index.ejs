@@ -6,30 +6,33 @@
 <body>
   <%- include('../partials/header') %>
   <main class="container">
-    <h1>Select a Skincare Product</h1>
+    <h3>Skincare Product Directory</h3>
     <table class="striped highlight">
       <thead>
         <tr>
           <th>Skin Type</th>
           <th>Brand Name</th>
           <th>Description</th>
-          <th>Review</th>
         </tr>
         <a href="/skincares/new<%= %>">Add New Product</a>
-      </thead>
+      </thead> 
     <tbody>
+      
       <% skincares.forEach(function(skincare) { %>
         <tr>
           <td><%= skincare.skinType %></td>
           <td><%= skincare.brandName %></td>
           <td><%= skincare.description %></td>
-          <td><%= skincare.reviewedBy.displayName %></td>
-          
         </tr>
+        
         <% }) %>
     </tbody>
   </table>
+  <button type="button" class="btn btn-danger">Delete</button>
+  <input type="submit" value="Edit Skincare"> 
+ 
 </main>
+
 <%- include('../partials/footer') %> 
 
 </body>
