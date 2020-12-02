@@ -28,7 +28,7 @@ This CRUD skincare application is a directory for skincare products for users to
 
 # Getting Started
 
-http://localhost:3000/
+https://mysa-beauty-box.herokuapp.com/skincares
 
 # Project Issues 
 
