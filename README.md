@@ -17,14 +17,15 @@ This CRUD skincare application is a directory for skincare products for users to
 
 # Beauty Box ERD Diagram 
 ![Beauty Box ERD Diagram](https://user-images.githubusercontent.com/70113941/100721019-cfd1c000-338c-11eb-920d-30f28632a05b.png)
+
 ## Technologies
--HTML5
--CSS3
--JavaScript
--Node.JS
--Express
--Mongoose/MongoDB
--PassportJS
+*HTML5
+*CSS3
+*JavaScript
+*Node.JS
+*Express
+*Mongoose/MongoDB
+*PassportJS
 
 # Getting Started
 

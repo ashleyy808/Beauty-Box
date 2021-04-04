@@ -21,7 +21,7 @@
 
 
 nav {
-  background-color: #F4C2C2;
+  background-color: gray;
   height: 50px;
   color: #424748;
 }
@@ -32,7 +32,9 @@ body {
   flex-direction: column;
   margin: 0;
   height: 100vh;
-  background-color: #F8F8FF;
+  background-image: url(./images/elena-joland-mjeQon0Mh_Q-unsplash.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 main {
@@ -53,7 +55,7 @@ footer {
   bottom: 0;
   flex-direction: row;
   width: 100%;
-  background-color: #FFF0F5;
+  background-color: gray;
 
 }
 
